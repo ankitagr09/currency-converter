@@ -42,7 +42,7 @@ No installation required! This is a client-side application that runs entirely i
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/currencyflow.git
+   git clone https://github.com/ankitagr09/currency-converter.git
    ```
 
 2. Open `index.html` in any web browser
