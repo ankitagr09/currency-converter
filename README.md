@@ -2,7 +2,7 @@
 
 A professional, SaaS-styled web application that allows users to convert between currencies using real-time exchange rates with historical charts.
 
-![Currency Converter Screenshot](https://via.placeholder.com/800x450.png?text=CurrencyFlow+Converter+App)
+![Currency Converter Screenshot](https://github.com/ankitagr09/currency-converter/blob/main/Screenshot%202025-08-13%20221858.png)
 
 ## Features
 
