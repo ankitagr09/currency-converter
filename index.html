@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CurrencyFlow - Real-Time Currency Converter</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="CurrencyFlow offers real-time currency conversion with historical charts for all major world currencies. Fast, accurate, and free to use.">
+    <meta name="keywords" content="currency converter, exchange rates, real-time conversion, currency calculator">
+    <meta name="author" content="Your Name">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-website.com/">
+    <meta property="og:title" content="CurrencyFlow - Real-Time Currency Converter">
+    <meta property="og:description" content="Convert between currencies with real-time exchange rates and view historical charts. Fast, accurate, and free to use.">
+    <meta property="og:image" content="https://your-website.com/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-website.com/">
+    <meta property="twitter:title" content="CurrencyFlow - Real-Time Currency Converter">
+    <meta property="twitter:description" content="Convert between currencies with real-time exchange rates and view historical charts. Fast, accurate, and free to use.">
+    <meta property="twitter:image" content="https://your-website.com/twitter-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-currency-exchange me-2"></i>CurrencyFlow
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Real-Time</span> Currency Conversion
+                    </h1>
+                    <p class="hero-subtitle">Fast, reliable, and up-to-date exchange rates for all major world currencies</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">30+</span>
+                            <span class="stat-label">Currencies</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Available</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Free</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="hero-graphic">
+                        <div class="currency-circle usd">$</div>
+                        <div class="currency-circle eur">€</div>
+                        <div class="currency-circle gbp">£</div>
+                        <div class="currency-circle jpy">¥</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+
+    <div class="container main-content">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card converter-card mt-4 shadow">
+                    <div class="card-decoration"></div>
+                    <div class="card-header">
+                        <h2 class="text-center h4 mb-0">Currency Converter</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="conversion-form">
+                            <!-- From Currency -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="fromCurrency" class="form-label">From</label>
+                                    <select id="fromCurrency" class="form-select"></select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="amount" class="form-label">Amount</label>
+                                    <input type="number" class="form-control" id="amount" value="1" min="0.01" step="0.01">
+                                </div>
+                            </div>
+
+                            <!-- Swap Button -->
+                            <div class="text-center mb-3">
+                                <button id="swapBtn" class="btn rounded-circle">
+                                    <i class="bi bi-arrow-down-up"></i>
+                                </button>
+                            </div>
+
+                            <!-- To Currency -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="toCurrency" class="form-label">To</label>
+                                    <select id="toCurrency" class="form-select"></select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="result" class="form-label">Converted Amount</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="result" readonly>
+                                        <button class="btn btn-outline-secondary" type="button" id="copyBtn" title="Copy to clipboard">
+                                            <i class="bi bi-clipboard"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exchange Rate -->
+                            <div class="exchange-rate-info alert alert-light text-center" id="exchangeRateInfo">
+                                1 <span id="fromCurrencyCode">USD</span> = 
+                                <span id="exchangeRate">0</span> <span id="toCurrencyCode">EUR</span>
+                            </div>
+                        </div>
+
+                        <!-- Last Updated -->
+                        <div class="mt-3 text-muted small text-center" id="lastUpdated">
+                            Last updated: Loading...
+                        </div>
+
+                        <!-- API Source -->
+                        <div class="text-muted small text-center">
+                            Data source: <a href="https://www.frankfurter.app" target="_blank">Frankfurter</a>
+                        </div>
+
+                        <!-- Popular Conversions -->
+                        <div class="popular-conversions mt-4">
+                            <h5 class="text-center mb-3">Popular Conversions for <span id="basePopular">USD</span></h5>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Currency</th>
+                                            <th>Code</th>
+                                            <th>Exchange Rate</th>
+                                            <th>Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="popularRates">
+                                        <!-- Populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Features</span>
+                <h2 class="section-title">Why Choose <span class="text-primary">CurrencyFlow</span>?</h2>
+                <div class="section-divider">
+                    <span></span>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">
+                                <i class="bi bi-graph-up"></i>
+                            </div>
+                        </div>
+                        <h3>Real-Time Rates</h3>
+                        <p>Get the latest exchange rates updated in real-time from reliable sources.</p>
+                        <div class="feature-hover-content">
+                            <span class="feature-link">Live updates <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card featured">
+                        <div class="feature-tag">Popular</div>
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">
+                                <i class="bi bi-lightning"></i>
+                            </div>
+                        </div>
+                        <h3>Lightning Fast</h3>
+                        <p>Instant currency conversions with no delay, built for speed and efficiency.</p>
+                        <div class="feature-hover-content">
+                            <span class="feature-link">No waiting <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">
+                                <i class="bi bi-phone"></i>
+                            </div>
+                        </div>
+                        <h3>Mobile Friendly</h3>
+                        <p>Access from any device with our fully responsive design and intuitive interface.</p>
+                        <div class="feature-hover-content">
+                            <span class="feature-link">Any device <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="features-bg-shape"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center footer-brand">
+                        <i class="bi bi-currency-exchange me-2"></i>
+                        <span>CurrencyFlow</span>
+                    </div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p class="mb-0 developer-info">
+                        Developed by <span id="developerName">Ankit Agrawal</span> | &copy; 2025 | Powered by <a href="https://www.frankfurter.app" target="_blank">Frankfurter</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay">
+        <div class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="mt-2 text-light">Loading exchange rates...</div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Application Scripts -->
+    <script src="chart.js"></script>
+    <script src="script.js"></script>
+    
+    <!-- Google Analytics: replace UA-XXXXX-Y with your ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXX-Y');
+    </script>
+</body>
+</html>
